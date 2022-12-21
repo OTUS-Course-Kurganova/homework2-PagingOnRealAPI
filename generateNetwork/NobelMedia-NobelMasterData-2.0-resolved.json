@@ -1,0 +1,1262 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Information about the Nobel Prizes and the Nobel Prize Laureates",
+    "version": "2.0",
+    "title": "Nobel Prize Master Data",
+    "license": {
+      "name": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "host": "api.nobelprize.org",
+  "basePath": "/2.0",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/nobelPrizes": {
+      "get": {
+        "description": "Obtain information about all Nobel Prizes or search for a specific set of Nobel Prizes. Note that not all information about the Laureates are provided in the output, as a request of making this endpoints response lighter. Call the laureates endpoint for full information.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The number of items to skip before starting to collect the result set",
+            "required": false,
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The numbers of items to return",
+            "required": false,
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "The sort order (result is sorted by year)",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "nobelPrizeYear",
+            "in": "query",
+            "description": "Year for which the Nobel Prize was awarded, in the form of YYYY",
+            "required": false,
+            "type": "integer",
+            "minimum": 1901
+          },
+          {
+            "name": "yearTo",
+            "in": "query",
+            "description": "Used in combination with nobelPrizeYear to specify a range of years to return results from. NobelPrizeYear is required",
+            "required": false,
+            "type": "integer",
+            "minimum": 1901
+          },
+          {
+            "name": "nobelPrizeCategory",
+            "in": "query",
+            "description": "Nobel Prize category",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "che",
+              "eco",
+              "lit",
+              "pea",
+              "phy",
+              "med"
+            ]
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Format of output (Default = json)",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "json",
+              "csv"
+            ]
+          },
+          {
+            "name": "csvLang",
+            "in": "query",
+            "description": "Language of output if format is csv (Default = en)",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "en",
+              "se",
+              "no"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful call of Nobel Prize(s) according to the filled fields",
+            "schema": {
+              "$ref": "#/definitions/nobelPrizesResult"
+            }
+          },
+          "400": {
+            "description": "Bad request.The request could not be understood by the server due to malformed syntax, modifications needed.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found but may be available again in the future.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity. The request was well-formed but was unable to be followed due to semantic errors.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/nobelPrize/{category}/{year}": {
+      "get": {
+        "description": "Obtain information about one specific Nobel Prize. Used as unique identifier for links.",
+        "produces": [
+          "application/json",
+          "text/csv"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "path",
+            "description": "Nobel Prize category",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "che",
+              "eco",
+              "lit",
+              "pea",
+              "phy",
+              "med"
+            ]
+          },
+          {
+            "name": "year",
+            "in": "path",
+            "description": "Year for which the Nobel Prize was awarded, in the form of YYYY",
+            "required": true,
+            "type": "integer",
+            "minimum": 1901
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful call of the Nobel Prize giving the category and year",
+            "schema": {
+              "$ref": "#/definitions/nobelPrizeResult"
+            }
+          },
+          "400": {
+            "description": "Bad request.The request could not be understood by the server due to malformed syntax, modifications needed.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found but may be available again in the future.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity. The request was well-formed but was unable to be followed due to semantic errors.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/laureates": {
+      "get": {
+        "description": "Obtain information about Nobel Prize Laureates (persons and organizations) and their Nobel Prize(s), or search for a set of Laureates. Returns full information about the Laureates and Prizes.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The number of items to skip before starting to collect the result set",
+            "required": false,
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The numbers of items to return",
+            "required": false,
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order, result is sorted alphabetically by known name",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "ID",
+            "in": "query",
+            "description": "Numeric ID of the Laureate (unique key for each Nobel Laureate)",
+            "required": false,
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Laureate's name (person or organization)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Laureate's gender if person",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "female",
+              "male",
+              "other"
+            ]
+          },
+          {
+            "name": "motivation",
+            "in": "query",
+            "description": "Text in Laureate's motivation",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "affiliation",
+            "in": "query",
+            "description": "Affiliation(s) for the Laureate at the time of the award",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "residence",
+            "in": "query",
+            "description": "Laureate's place of residence at the time is awarded",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "birthDate",
+            "in": "query",
+            "description": "Birth date of Laureate if Person. Search by year in the form of YYYY, by month -MM-, by day -DD or YYYY-MM-DD",
+            "required": false,
+            "type": "integer",
+            "format": "date"
+          },
+          {
+            "name": "birthDateTo",
+            "in": "query",
+            "description": "Return Laureates born within a range of years between birthDate and birthDateTo. BirthDate field is required",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "deathDate",
+            "in": "query",
+            "description": "Death date of Laureate if Person. Search by year in the form of YYYY, by month -MM-, by day -DD or YYYY-MM-DD",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "deathDateTo",
+            "in": "query",
+            "description": "Return Laureates deceased within a range of years between deathDate and deathhDateTo. DeathDate field is required",
+            "required": false,
+            "type": "integer",
+            "format": "date"
+          },
+          {
+            "name": "foundedDate",
+            "in": "query",
+            "description": "Founding date of Laureate if Organization. Search by year in the form of YYYY, by month -MM-, by day -DD or YYYY-MM-DD",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "birthCity",
+            "in": "query",
+            "description": "Laureate's city of birth if person",
+            "required": false,
+            "type": "string",
+            "format": "utf-8"
+          },
+          {
+            "name": "birthCountry",
+            "in": "query",
+            "description": "Laureate's country of birth if person",
+            "required": false,
+            "type": "string",
+            "format": "utf-8"
+          },
+          {
+            "name": "birthContinent",
+            "in": "query",
+            "description": "Laureate's continent of birth if person. Continent as in geonames.org standard",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "North America",
+              "Oceania",
+              "South America",
+              "Antarctica"
+            ]
+          },
+          {
+            "name": "deathCity",
+            "in": "query",
+            "description": "Laureate's city of death if person",
+            "required": false,
+            "type": "string",
+            "format": "utf-8"
+          },
+          {
+            "name": "deathCountry",
+            "in": "query",
+            "description": "Laureate's country of death if person",
+            "required": false,
+            "type": "string",
+            "format": "utf-8"
+          },
+          {
+            "name": "deathContinent",
+            "in": "query",
+            "description": "Laureate's continent of death if person. Continent as in geonames.org standard",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "North America",
+              "Oceania",
+              "South America",
+              "Antarctica"
+            ]
+          },
+          {
+            "name": "foundedCity",
+            "in": "query",
+            "description": "City where organization was founded",
+            "required": false,
+            "type": "string",
+            "format": "utf-8"
+          },
+          {
+            "name": "foundedCountry",
+            "in": "query",
+            "description": "Country where organization was founded",
+            "required": false,
+            "type": "string",
+            "format": "utf-8"
+          },
+          {
+            "name": "foundedContinent",
+            "in": "query",
+            "description": "Continent where organization was founded. Continent as in geonames.org standard",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "North America",
+              "Oceania",
+              "South America",
+              "Antarctica"
+            ]
+          },
+          {
+            "name": "HeadquartersCity",
+            "in": "query",
+            "description": "City where organization's hearquarters are",
+            "required": false,
+            "type": "string",
+            "format": "utf-8"
+          },
+          {
+            "name": "HeadquartersCountry",
+            "in": "query",
+            "description": "Country where organization's hearquarters are",
+            "required": false,
+            "type": "string",
+            "format": "utf-8"
+          },
+          {
+            "name": "HeadquartersContinent",
+            "in": "query",
+            "description": "Continent where organization's hearquarters are. Continent as in geonames.org standard",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "North America",
+              "Oceania",
+              "South America",
+              "Antarctica"
+            ]
+          },
+          {
+            "name": "nobelPrizeYear",
+            "in": "query",
+            "description": "The year for which the Nobel Prize was awarded, in the form of YYYY",
+            "required": false,
+            "type": "integer",
+            "minimum": 1901
+          },
+          {
+            "name": "yearTo",
+            "in": "query",
+            "description": "Used in combination with nobelPrizeYear to specify a range of years between nobelPrizeYear and YearTo. nobelPrizeYear is required",
+            "required": false,
+            "type": "integer",
+            "minimum": 1901
+          },
+          {
+            "name": "nobelPrizeCategory",
+            "in": "query",
+            "description": "Nobel Prize category.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "che",
+              "eco",
+              "lit",
+              "pea",
+              "phy",
+              "med"
+            ]
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Output format (Default = json).",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "json",
+              "csv"
+            ]
+          },
+          {
+            "name": "csvLang",
+            "in": "query",
+            "description": "Language if output format is csv (default = en).",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "en",
+              "se",
+              "no"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful call of Laureate(s).",
+            "schema": {
+              "$ref": "#/definitions/laureatesResult"
+            }
+          },
+          "400": {
+            "description": "Bad request.The request could not be understood by the server due to malformed syntax, modifications needed.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found but may be available again in the future.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity. The request was well-formed but was unable to be followed due to semantic errors.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/laureate/{laureateID}": {
+      "get": {
+        "description": "Obtain information about an specific Nobel Prize Laureate. Used as unique identifier.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "laureateID",
+            "in": "path",
+            "description": "Numeric Laureate's ID. Unique key.",
+            "required": true,
+            "type": "integer",
+            "minimum": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful call of Laureate given the ID",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/laureateResult"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.The request could not be understood by the server due to malformed syntax, modifications needed.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found but may be available again in the future.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity. The request was well-formed but was unable to be followed due to semantic errors.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "laureatesResult": {
+      "type": "object",
+      "properties": {
+        "laureates": {
+          "$ref": "#/definitions/laureates"
+        },
+        "meta": {
+          "$ref": "#/definitions/laureatesMeta"
+        },
+        "links": {
+          "$ref": "#/definitions/links"
+        }
+      },
+      "description": "Successful responses for Laureates"
+    },
+    "laureateResult": {
+      "type": "object",
+      "properties": {
+        "laureate": {
+          "$ref": "#/definitions/laureate"
+        }
+      },
+      "description": "Successful response for laureate/{ID}"
+    },
+    "nobelPrizesResult": {
+      "type": "object",
+      "properties": {
+        "nobelPrizes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nobelPrize"
+          }
+        },
+        "meta": {
+          "$ref": "#/definitions/nobelPrizesMeta"
+        },
+        "links": {
+          "$ref": "#/definitions/links"
+        }
+      },
+      "description": "Successful response for Nobel Prize search"
+    },
+    "nobelPrizeResult": {
+      "type": "object",
+      "properties": {
+        "nobelPrize": {
+          "$ref": "#/definitions/nobelPrize"
+        }
+      },
+      "description": "Successful response for Nobel Prize search"
+    },
+    "nobelPrize": {
+      "type": "object",
+      "properties": {
+        "awardYear": {
+          "type": "integer",
+          "example": 1989
+        },
+        "category": {
+          "$ref": "#/definitions/translation"
+        },
+        "categoryFullName": {
+          "$ref": "#/definitions/translation"
+        },
+        "dateAwarded": {
+          "type": "string",
+          "format": "date",
+          "example": "2015-11-12"
+        },
+        "prizeAmount": {
+          "type": "integer",
+          "example": 1000000,
+          "description": "Prize amount given at the year of the award"
+        },
+        "prizeAmountAdjusted": {
+          "type": "integer",
+          "example": 1000000,
+          "description": "Prize amount adjusted according to Index number yearly average"
+        },
+        "topMotivation": {
+          "$ref": "#/definitions/translation"
+        },
+        "laureates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/laureateBasic"
+          }
+        }
+      },
+      "description": "Model containing Nobel Prize information"
+    },
+    "nobelPrizePerLaureate": {
+      "type": "object",
+      "properties": {
+        "awardYear": {
+          "type": "integer",
+          "example": 1989
+        },
+        "category": {
+          "$ref": "#/definitions/translation"
+        },
+        "categoryFullName": {
+          "$ref": "#/definitions/translation"
+        },
+        "sortOrder": {
+          "type": "string",
+          "default": "1",
+          "enum": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "portion": {
+          "type": "string",
+          "default": "1",
+          "enum": [
+            "1",
+            "1/2",
+            "1/3",
+            "1/4"
+          ]
+        },
+        "dateAwarded": {
+          "type": "string",
+          "format": "date",
+          "example": "1989-04-25"
+        },
+        "prizeStatus": {
+          "type": "string",
+          "example": "received",
+          "enum": [
+            "received",
+            "declined",
+            "restricted"
+          ]
+        },
+        "motivation": {
+          "$ref": "#/definitions/translation"
+        },
+        "prizeAmount": {
+          "type": "integer",
+          "example": 1000000,
+          "description": "Prize amount given at the year of the award"
+        },
+        "prizeAmountAdjusted": {
+          "type": "integer",
+          "example": 1000000,
+          "description": "Prize amount adjusted according to Index number yearly average"
+        },
+        "affiliations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/entity"
+          }
+        },
+        "residences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/residence"
+          }
+        },
+        "links": {
+          "$ref": "#/definitions/itemLinks"
+        }
+      },
+      "description": "Description of the Nobel Prize by Laureate"
+    },
+    "laureateBasic": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 34,
+          "minimum": 1
+        },
+        "name": {
+          "$ref": "#/definitions/translation"
+        },
+        "portion": {
+          "type": "string",
+          "default": "1",
+          "enum": [
+            "1",
+            "1/2",
+            "1/3",
+            "1/4"
+          ]
+        },
+        "sortOrder": {
+          "type": "string",
+          "default": "1",
+          "enum": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "motivation": {
+          "$ref": "#/definitions/translation"
+        },
+        "links": {
+          "$ref": "#/definitions/itemLinks"
+        }
+      },
+      "description": "Short information about the Laureate"
+    },
+    "laureate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 456,
+          "minimum": 1
+        },
+        "laureateIfPerson": {
+          "$ref": "#/definitions/person"
+        },
+        "laureateIfOrg": {
+          "$ref": "#/definitions/organization"
+        },
+        "wikipedia": {
+          "$ref": "#/definitions/laureate_wikipedia"
+        },
+        "wikidata": {
+          "$ref": "#/definitions/laureate_wikidata"
+        },
+        "sameas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/urls"
+          }
+        },
+        "links": {
+          "$ref": "#/definitions/itemLinks"
+        },
+        "nobelPrizes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nobelPrizePerLaureate"
+          }
+        }
+      },
+      "description": "Laureate's full information and their respectives awarded Prizes"
+    },
+    "laureates": {
+      "type": "array",
+      "description": "Model containing a list of Laureates",
+      "items": {
+        "$ref": "#/definitions/laureate"
+      }
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "$ref": "#/definitions/translation"
+        },
+        "country": {
+          "$ref": "#/definitions/translation"
+        },
+        "cityNow": {
+          "$ref": "#/definitions/translationWithSameas"
+        },
+        "countryNow": {
+          "$ref": "#/definitions/translationWithSameas"
+        },
+        "continent": {
+          "$ref": "#/definitions/translation"
+        },
+        "locationString": {
+          "$ref": "#/definitions/translation"
+        }
+      },
+      "description": "City and county at the time, citynow and countrynow are as up to date names. Continent as geonames.org standard. LocationString is the combination of city, country, citynow and country now."
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "example": "1989-04-25"
+        },
+        "place": {
+          "$ref": "#/definitions/location"
+        }
+      }
+    },
+    "person": {
+      "type": "object",
+      "properties": {
+        "knownName": {
+          "$ref": "#/definitions/translation"
+        },
+        "givenName": {
+          "$ref": "#/definitions/translation"
+        },
+        "familyName": {
+          "$ref": "#/definitions/translation"
+        },
+        "fullName": {
+          "$ref": "#/definitions/translation"
+        },
+        "filename": {
+          "type": "string",
+          "example": "filename",
+          "description": "Short slug version of familyname used in filenames"
+        },
+        "penname": {
+          "type": "string",
+          "example": "Penname",
+          "description": "Only for some Laureates in Literature category"
+        },
+        "gender": {
+          "type": "string",
+          "example": "female",
+          "enum": [
+            "female",
+            "male"
+          ]
+        },
+        "birth": {
+          "$ref": "#/definitions/event"
+        },
+        "death": {
+          "$ref": "#/definitions/event"
+        }
+      },
+      "description": "Fullname is the combination of given and family name"
+    },
+    "nobelPrizesMeta": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32",
+          "minimum": 1
+        },
+        "nobelPrizeYear": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "yearTo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nobelPrizeCategory": {
+          "type": "string",
+          "example": "eco"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "laureatesMeta": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "string"
+        },
+        "ID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "motivation": {
+          "type": "string"
+        },
+        "affiliation": {
+          "type": "string"
+        },
+        "residence": {
+          "type": "string"
+        },
+        "birthDate": {
+          "type": "string"
+        },
+        "birthDateTo": {
+          "type": "string"
+        },
+        "deathDate": {
+          "type": "string"
+        },
+        "deathDateTo": {
+          "type": "string"
+        },
+        "foundedDate": {
+          "type": "string"
+        },
+        "birthCity": {
+          "type": "string"
+        },
+        "birthCountry": {
+          "type": "string"
+        },
+        "birthContinent": {
+          "type": "string"
+        },
+        "deathCity": {
+          "type": "string"
+        },
+        "deathCountry": {
+          "type": "string"
+        },
+        "deathContinent": {
+          "type": "string"
+        },
+        "foundedCity": {
+          "type": "string"
+        },
+        "foundedCountry": {
+          "type": "string"
+        },
+        "foundedContinent": {
+          "type": "string"
+        },
+        "headquartersCity": {
+          "type": "string"
+        },
+        "headquartersCountry": {
+          "type": "string"
+        },
+        "headquartersContinent": {
+          "type": "string"
+        },
+        "nobelPrizeYear": {
+          "type": "integer"
+        },
+        "yearTo": {
+          "type": "integer"
+        },
+        "nobelPrizeCategory": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "string"
+        },
+        "prev": {
+          "type": "string"
+        },
+        "self": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        },
+        "last": {
+          "type": "string"
+        }
+      }
+    },
+    "itemLinks": {
+      "type": "object",
+      "properties": {
+        "rel": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "types": {
+          "type": "string"
+        }
+      }
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "orgName": {
+          "$ref": "#/definitions/translation"
+        },
+        "nativeName": {
+          "type": "string",
+          "example": "Native name"
+        },
+        "acronym": {
+          "type": "string",
+          "example": "Acronym"
+        },
+        "founded": {
+          "$ref": "#/definitions/event"
+        },
+        "dissolution": {
+          "$ref": "#/definitions/event"
+        },
+        "headquarters": {
+          "$ref": "#/definitions/location"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/translation"
+        },
+        "nameNow": {
+          "$ref": "#/definitions/translation"
+        },
+        "nativeName": {
+          "type": "string",
+          "example": "Le romenic universitet"
+        },
+        "city": {
+          "$ref": "#/definitions/translation"
+        },
+        "country": {
+          "$ref": "#/definitions/translation"
+        },
+        "cityNow": {
+          "$ref": "#/definitions/translationWithSameas"
+        },
+        "countryNow": {
+          "$ref": "#/definitions/translationWithSameas"
+        },
+        "locationString": {
+          "$ref": "#/definitions/translation"
+        }
+      }
+    },
+    "residence": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "$ref": "#/definitions/translation"
+        },
+        "country": {
+          "$ref": "#/definitions/translation"
+        },
+        "cityNow": {
+          "$ref": "#/definitions/translationWithSameas"
+        },
+        "countryNow": {
+          "$ref": "#/definitions/translationWithSameas"
+        },
+        "locationString": {
+          "$ref": "#/definitions/translation"
+        }
+      }
+    },
+    "translation": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string",
+          "example": "English"
+        },
+        "se": {
+          "type": "string",
+          "example": "Svenska"
+        },
+        "false": {
+          "type": "string",
+          "example": "Norsk"
+        }
+      }
+    },
+    "translationWithSameas": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string",
+          "example": "English"
+        },
+        "se": {
+          "type": "string",
+          "example": "Svenska"
+        },
+        "false": {
+          "type": "string",
+          "example": "Norsk"
+        },
+        "sameas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/urls"
+          }
+        }
+      }
+    },
+    "urls": {
+      "type": "string",
+      "example": "https://"
+    },
+    "error": {
+      "type": "object",
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "404"
+        },
+        "message": {
+          "type": "string",
+          "example": "There is not Laureate born that date"
+        }
+      }
+    },
+    "laureate_wikipedia": {
+      "type": "object",
+      "properties": {
+        "slug": {
+          "type": "string",
+          "example": "slug",
+          "description": "Wikipedia url slug"
+        },
+        "english": {
+          "type": "string",
+          "example": "https://en.wikipedia.org/wiki/",
+          "description": "URL to english wikipedia page"
+        }
+      }
+    },
+    "laureate_wikidata": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "id",
+          "description": "Wikidata id"
+        },
+        "url": {
+          "type": "string",
+          "example": "https://www.wikidata.org/wiki/",
+          "description": "URL to wikidata entry"
+        }
+      }
+    }
+  },
+  "responses": {
+    "BadRequest": {
+      "description": "Bad request.The request could not be understood by the server due to malformed syntax, modifications needed.",
+      "schema": {
+        "$ref": "#/definitions/error"
+      }
+    },
+    "UnprocessableEntity": {
+      "description": "Unprocessable Entity. The request was well-formed but was unable to be followed due to semantic errors.",
+      "schema": {
+        "$ref": "#/definitions/error"
+      }
+    },
+    "NotFound": {
+      "description": "Not Found. The requested resource could not be found but may be available again in the future.",
+      "schema": {
+        "$ref": "#/definitions/error"
+      }
+    }
+  }
+}
