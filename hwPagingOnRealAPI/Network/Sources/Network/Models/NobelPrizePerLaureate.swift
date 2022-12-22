@@ -29,7 +29,7 @@ public struct NobelPrizePerLaureate: Codable, JSONEncodable, Hashable {
         case declined = "declined"
         case restricted = "restricted"
     }
-    public var awardYear: Int?
+    public var awardYear: String?
     public var category: Translation?
     public var categoryFullName: Translation?
     public var sortOrder: SortOrder? = ._1
@@ -45,7 +45,7 @@ public struct NobelPrizePerLaureate: Codable, JSONEncodable, Hashable {
     public var residences: [Residence]?
     public var links: ItemLinks?
 
-    public init(awardYear: Int? = nil, category: Translation? = nil, categoryFullName: Translation? = nil, sortOrder: SortOrder? = ._1, portion: Portion? = ._1, dateAwarded: Date? = nil, prizeStatus: PrizeStatus? = nil, motivation: Translation? = nil, prizeAmount: Int? = nil, prizeAmountAdjusted: Int? = nil, affiliations: [Entity]? = nil, residences: [Residence]? = nil, links: ItemLinks? = nil) {
+    public init(awardYear: String? = nil, category: Translation? = nil, categoryFullName: Translation? = nil, sortOrder: SortOrder? = ._1, portion: Portion? = ._1, dateAwarded: Date? = nil, prizeStatus: PrizeStatus? = nil, motivation: Translation? = nil, prizeAmount: Int? = nil, prizeAmountAdjusted: Int? = nil, affiliations: [Entity]? = nil, residences: [Residence]? = nil, links: ItemLinks? = nil) {
         self.awardYear = awardYear
         self.category = category
         self.categoryFullName = categoryFullName

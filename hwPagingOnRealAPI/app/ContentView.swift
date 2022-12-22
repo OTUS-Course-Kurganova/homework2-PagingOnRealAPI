@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel: LaureatesViewModel
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        List {
+            ForEach(viewModel.laureates) { laureate in
+                Text(laureate.name)
+            }
         }
-        .padding()
+        .onAppear { viewModel.getLaureates() }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: .init())
     }
 }

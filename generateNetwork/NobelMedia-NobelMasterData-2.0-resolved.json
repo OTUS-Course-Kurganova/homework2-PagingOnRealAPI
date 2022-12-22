@@ -12,7 +12,6 @@
   "host": "api.nobelprize.org",
   "basePath": "/2.0",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
@@ -670,8 +669,8 @@
       "type": "object",
       "properties": {
         "awardYear": {
-          "type": "integer",
-          "example": 1989
+          "type": "string",
+          "example": "1989"
         },
         "category": {
           "$ref": "#/definitions/translation"
@@ -786,15 +785,64 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "example": 456,
-          "minimum": 1
+          "type": "string",
+          "example": "456"
         },
-        "laureateIfPerson": {
-          "$ref": "#/definitions/person"
+        "knownName": {
+          "$ref": "#/definitions/translation"
         },
-        "laureateIfOrg": {
-          "$ref": "#/definitions/organization"
+        "givenName": {
+          "$ref": "#/definitions/translation"
+        },
+        "familyName": {
+          "$ref": "#/definitions/translation"
+        },
+        "fullName": {
+          "$ref": "#/definitions/translation"
+        },
+        "filename": {
+          "type": "string",
+          "example": "filename",
+          "description": "Short slug version of familyname used in filenames"
+        },
+        "penname": {
+          "type": "string",
+          "example": "Penname",
+          "description": "Only for some Laureates in Literature category"
+        },
+        "gender": {
+          "type": "string",
+          "example": "female",
+          "enum": [
+            "female",
+            "male"
+          ]
+        },
+        "birth": {
+          "$ref": "#/definitions/eventInfo"
+        },
+        "death": {
+          "$ref": "#/definitions/eventInfo"
+        },
+        "orgName": {
+          "$ref": "#/definitions/translation"
+        },
+        "nativeName": {
+          "type": "string",
+          "example": "Native name"
+        },
+        "acronym": {
+          "type": "string",
+          "example": "Acronym"
+        },
+        "founded": {
+          "$ref": "#/definitions/eventInfo"
+        },
+        "dissolution": {
+          "$ref": "#/definitions/eventInfo"
+        },
+        "headquarters": {
+          "$ref": "#/definitions/location"
         },
         "wikipedia": {
           "$ref": "#/definitions/laureate_wikipedia"
@@ -851,60 +899,17 @@
       },
       "description": "City and county at the time, citynow and countrynow are as up to date names. Continent as geonames.org standard. LocationString is the combination of city, country, citynow and country now."
     },
-    "event": {
+    "eventInfo": {
       "type": "object",
       "properties": {
         "date": {
           "type": "string",
-          "format": "date",
           "example": "1989-04-25"
         },
         "place": {
           "$ref": "#/definitions/location"
         }
       }
-    },
-    "person": {
-      "type": "object",
-      "properties": {
-        "knownName": {
-          "$ref": "#/definitions/translation"
-        },
-        "givenName": {
-          "$ref": "#/definitions/translation"
-        },
-        "familyName": {
-          "$ref": "#/definitions/translation"
-        },
-        "fullName": {
-          "$ref": "#/definitions/translation"
-        },
-        "filename": {
-          "type": "string",
-          "example": "filename",
-          "description": "Short slug version of familyname used in filenames"
-        },
-        "penname": {
-          "type": "string",
-          "example": "Penname",
-          "description": "Only for some Laureates in Literature category"
-        },
-        "gender": {
-          "type": "string",
-          "example": "female",
-          "enum": [
-            "female",
-            "male"
-          ]
-        },
-        "birth": {
-          "$ref": "#/definitions/event"
-        },
-        "death": {
-          "$ref": "#/definitions/event"
-        }
-      },
-      "description": "Fullname is the combination of given and family name"
     },
     "nobelPrizesMeta": {
       "type": "object",
@@ -1075,27 +1080,7 @@
     "organization": {
       "type": "object",
       "properties": {
-        "orgName": {
-          "$ref": "#/definitions/translation"
-        },
-        "nativeName": {
-          "type": "string",
-          "example": "Native name"
-        },
-        "acronym": {
-          "type": "string",
-          "example": "Acronym"
-        },
-        "founded": {
-          "$ref": "#/definitions/event"
-        },
-        "dissolution": {
-          "$ref": "#/definitions/event"
-        },
-        "headquarters": {
-          "$ref": "#/definitions/location"
-        }
-      }
+              }
     },
     "entity": {
       "type": "object",

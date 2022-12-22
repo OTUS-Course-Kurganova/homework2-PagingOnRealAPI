@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		187B285B29537EFF0089C082 /* LaureatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B285A29537EFF0089C082 /* LaureatesViewModel.swift */; };
+		187B2860295382400089C082 /* LaureateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B285F295382400089C082 /* LaureateDataSource.swift */; };
 		18A700942953422800EB8C85 /* hwPagingOnRealAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A700932953422800EB8C85 /* hwPagingOnRealAPIApp.swift */; };
 		18A700962953422800EB8C85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A700952953422800EB8C85 /* ContentView.swift */; };
 		18A700982953422900EB8C85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A700972953422900EB8C85 /* Assets.xcassets */; };
@@ -17,7 +19,10 @@
 /* Begin PBXFileReference section */
 		1801463D295364310089B19A /* generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = "<group>"; };
 		1801463F295366590089B19A /* NobelMedia-NobelMasterData-2.0-resolved.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "NobelMedia-NobelMasterData-2.0-resolved.json"; sourceTree = "<group>"; };
-		186BDDF12953719C0075FCD9 /* hwPagingOnRealAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = hwPagingOnRealAPI.app; path = "/Users/a.kurganova/Documents/Программирование/otus. iOS dev Proffesional (22:23y)/hwPagingOnRealAPI/build/Debug-iphoneos/hwPagingOnRealAPI.app"; sourceTree = "<absolute>"; };
+		1843644829538EE6002A8F59 /* hwPagingOnRealAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hwPagingOnRealAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		184364492954A605002A8F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		187B285A29537EFF0089C082 /* LaureatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureatesViewModel.swift; sourceTree = "<group>"; };
+		187B285F295382400089C082 /* LaureateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateDataSource.swift; sourceTree = "<group>"; };
 		18A700932953422800EB8C85 /* hwPagingOnRealAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hwPagingOnRealAPIApp.swift; sourceTree = "<group>"; };
 		18A700952953422800EB8C85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18A700972953422900EB8C85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,20 +52,40 @@
 			path = generateNetwork;
 			sourceTree = "<group>";
 		};
+		187B285929537ECE0089C082 /* laureates */ = {
+			isa = PBXGroup;
+			children = (
+				187B2861295382450089C082 /* laureate */,
+				187B285A29537EFF0089C082 /* LaureatesViewModel.swift */,
+			);
+			path = laureates;
+			sourceTree = "<group>";
+		};
+		187B2861295382450089C082 /* laureate */ = {
+			isa = PBXGroup;
+			children = (
+				187B285F295382400089C082 /* LaureateDataSource.swift */,
+			);
+			path = laureate;
+			sourceTree = "<group>";
+		};
 		18A700872953422800EB8C85 = {
 			isa = PBXGroup;
 			children = (
 				1801463E295366000089B19A /* generateNetwork */,
 				18A700922953422800EB8C85 /* hwPagingOnRealAPI */,
 				18A700A2295346C600EB8C85 /* README.md */,
+				1843644829538EE6002A8F59 /* hwPagingOnRealAPI.app */,
 			);
 			sourceTree = "<group>";
 		};
 		18A700922953422800EB8C85 /* hwPagingOnRealAPI */ = {
 			isa = PBXGroup;
 			children = (
+				184364492954A605002A8F59 /* Info.plist */,
 				18A700AB295356EA00EB8C85 /* Network */,
 				18A700A12953423600EB8C85 /* app */,
+				187B285929537ECE0089C082 /* laureates */,
 				18A700992953422900EB8C85 /* Preview Content */,
 			);
 			path = hwPagingOnRealAPI;
@@ -104,7 +129,7 @@
 				18BD0B3C29536F2D003D20DA /* Network */,
 			);
 			productName = hwPagingOnRealAPI;
-			productReference = 186BDDF12953719C0075FCD9 /* hwPagingOnRealAPI.app */;
+			productReference = 1843644829538EE6002A8F59 /* hwPagingOnRealAPI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,6 +184,8 @@
 			files = (
 				18A700962953422800EB8C85 /* ContentView.swift in Sources */,
 				18A700942953422800EB8C85 /* hwPagingOnRealAPIApp.swift in Sources */,
+				187B285B29537EFF0089C082 /* LaureatesViewModel.swift in Sources */,
+				187B2860295382400089C082 /* LaureateDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,9 +318,9 @@
 				DEVELOPMENT_TEAM = MDZ5SL5X2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hwPagingOnRealAPI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = hwPagingAPI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -326,9 +353,9 @@
 				DEVELOPMENT_TEAM = MDZ5SL5X2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hwPagingOnRealAPI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = hwPagingAPI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

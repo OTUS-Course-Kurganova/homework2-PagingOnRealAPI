@@ -8,7 +8,7 @@ JSONDataEncoding.swift
 JSONEncodingHelper.swift
 Models.swift
 Models/Entity.swift
-Models/Event.swift
+Models/EventInfo.swift
 Models/ItemLinks.swift
 Models/Laureate.swift
 Models/LaureateBasic.swift
@@ -25,8 +25,6 @@ Models/NobelPrizePerLaureate.swift
 Models/NobelPrizeResult.swift
 Models/NobelPrizesMeta.swift
 Models/NobelPrizesResult.swift
-Models/Organization.swift
-Models/Person.swift
 Models/Residence.swift
 Models/Translation.swift
 Models/TranslationWithSameas.swift

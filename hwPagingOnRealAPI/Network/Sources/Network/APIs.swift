@@ -14,7 +14,7 @@ import Foundation
 public typealias Network = NetworkAPI
 
 open class NetworkAPI {
-    public static var basePath = "http://api.nobelprize.org/2.0"
+    public static var basePath = "https://api.nobelprize.org/2.0"
     public static var customHeaders: [String: String] = [:]
     public static var credential: URLCredential?
     public static var requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory()

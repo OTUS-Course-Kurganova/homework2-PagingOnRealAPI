@@ -11,7 +11,7 @@ import SwiftUI
 struct hwPagingOnRealAPIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: LaureatesViewModel())
         }
     }
 }
