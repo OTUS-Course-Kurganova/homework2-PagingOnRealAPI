@@ -8,20 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel: LaureatesViewModel
+    @EnvironmentObject var laureateViewModel: LaureatesViewModel
+    @EnvironmentObject var segmentViewModel: SegmentedViewModel
 
     var body: some View {
-        List {
-            ForEach(viewModel.laureates) { laureate in
-                Text(laureate.name)
-            }
-        }
-        .onAppear { viewModel.getLaureates() }
+        TitleView
+        SegmentedView()
+            .environmentObject(segmentViewModel)
+        LaureatesListView()
+            .environmentObject(laureateViewModel)
+            .onAppear { laureateViewModel.getLaureates(category: segmentViewModel.convertToCategory()) }
+    }
+
+    fileprivate var TitleView: some View {
+        Text("Лауреаты, получившие премию в области ")
+            .font(.system(size: 18))
+            .multilineTextAlignment(.center)
+            .foregroundColor(.gray)
+            .padding(.top, 14)
+            .padding(.bottom, 10)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: .init())
+        ContentView()
+            .environmentObject(LaureatesViewModel())
+            .environmentObject(SegmentedViewModel())
     }
 }

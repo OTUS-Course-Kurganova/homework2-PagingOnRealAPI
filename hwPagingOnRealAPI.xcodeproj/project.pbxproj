@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1843644D2954AFED002A8F59 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843644C2954AFED002A8F59 /* SegmentedView.swift */; };
+		184364502954B081002A8F59 /* LaureateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843644F2954B081002A8F59 /* LaureateView.swift */; };
+		184364522954B0A8002A8F59 /* LaureateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364512954B0A8002A8F59 /* LaureateViewModel.swift */; };
+		184364542954B109002A8F59 /* SegmentedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364532954B109002A8F59 /* SegmentedViewModel.swift */; };
+		184364562954B157002A8F59 /* LaureatesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364552954B157002A8F59 /* LaureatesListView.swift */; };
+		184364592954BE1E002A8F59 /* NobelPrizeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364582954BE1E002A8F59 /* NobelPrizeDataSource.swift */; };
+		1843645C2954BECD002A8F59 /* LaureateBasicDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843645B2954BECD002A8F59 /* LaureateBasicDataSource.swift */; };
+		184364612955BD2D002A8F59 /* RandomAccessCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364602955BD2D002A8F59 /* RandomAccessCollection.swift */; };
+		184364632955C9F3002A8F59 /* ProgressBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364622955C9F3002A8F59 /* ProgressBarModifier.swift */; };
 		187B285B29537EFF0089C082 /* LaureatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B285A29537EFF0089C082 /* LaureatesViewModel.swift */; };
 		187B2860295382400089C082 /* LaureateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B285F295382400089C082 /* LaureateDataSource.swift */; };
 		18A700942953422800EB8C85 /* hwPagingOnRealAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A700932953422800EB8C85 /* hwPagingOnRealAPIApp.swift */; };
@@ -20,7 +29,16 @@
 		1801463D295364310089B19A /* generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = "<group>"; };
 		1801463F295366590089B19A /* NobelMedia-NobelMasterData-2.0-resolved.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "NobelMedia-NobelMasterData-2.0-resolved.json"; sourceTree = "<group>"; };
 		1843644829538EE6002A8F59 /* hwPagingOnRealAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hwPagingOnRealAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		184364492954A605002A8F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		184364492954A605002A8F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1843644C2954AFED002A8F59 /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
+		1843644F2954B081002A8F59 /* LaureateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateView.swift; sourceTree = "<group>"; };
+		184364512954B0A8002A8F59 /* LaureateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateViewModel.swift; sourceTree = "<group>"; };
+		184364532954B109002A8F59 /* SegmentedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedViewModel.swift; sourceTree = "<group>"; };
+		184364552954B157002A8F59 /* LaureatesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureatesListView.swift; sourceTree = "<group>"; };
+		184364582954BE1E002A8F59 /* NobelPrizeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NobelPrizeDataSource.swift; sourceTree = "<group>"; };
+		1843645B2954BECD002A8F59 /* LaureateBasicDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateBasicDataSource.swift; sourceTree = "<group>"; };
+		184364602955BD2D002A8F59 /* RandomAccessCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollection.swift; sourceTree = "<group>"; };
+		184364622955C9F3002A8F59 /* ProgressBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarModifier.swift; sourceTree = "<group>"; };
 		187B285A29537EFF0089C082 /* LaureatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureatesViewModel.swift; sourceTree = "<group>"; };
 		187B285F295382400089C082 /* LaureateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateDataSource.swift; sourceTree = "<group>"; };
 		18A700932953422800EB8C85 /* hwPagingOnRealAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hwPagingOnRealAPIApp.swift; sourceTree = "<group>"; };
@@ -52,11 +70,54 @@
 			path = generateNetwork;
 			sourceTree = "<group>";
 		};
+		1843644A2954AF67002A8F59 /* segmentedScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1843644C2954AFED002A8F59 /* SegmentedView.swift */,
+				184364532954B109002A8F59 /* SegmentedViewModel.swift */,
+			);
+			path = segmentedScreen;
+			sourceTree = "<group>";
+		};
+		1843644E2954B02A002A8F59 /* customNavigationStack */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = customNavigationStack;
+			sourceTree = "<group>";
+		};
+		184364572954BE01002A8F59 /* nobelPrizes */ = {
+			isa = PBXGroup;
+			children = (
+				184364582954BE1E002A8F59 /* NobelPrizeDataSource.swift */,
+			);
+			path = nobelPrizes;
+			sourceTree = "<group>";
+		};
+		1843645A2954BEB2002A8F59 /* dataSource */ = {
+			isa = PBXGroup;
+			children = (
+				187B285F295382400089C082 /* LaureateDataSource.swift */,
+				1843645B2954BECD002A8F59 /* LaureateBasicDataSource.swift */,
+			);
+			path = dataSource;
+			sourceTree = "<group>";
+		};
+		1843645F2955BD06002A8F59 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				184364602955BD2D002A8F59 /* RandomAccessCollection.swift */,
+				184364622955C9F3002A8F59 /* ProgressBarModifier.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		187B285929537ECE0089C082 /* laureates */ = {
 			isa = PBXGroup;
 			children = (
-				187B2861295382450089C082 /* laureate */,
+				184364552954B157002A8F59 /* LaureatesListView.swift */,
 				187B285A29537EFF0089C082 /* LaureatesViewModel.swift */,
+				1843644A2954AF67002A8F59 /* segmentedScreen */,
 			);
 			path = laureates;
 			sourceTree = "<group>";
@@ -64,7 +125,10 @@
 		187B2861295382450089C082 /* laureate */ = {
 			isa = PBXGroup;
 			children = (
-				187B285F295382400089C082 /* LaureateDataSource.swift */,
+				1843644E2954B02A002A8F59 /* customNavigationStack */,
+				1843644F2954B081002A8F59 /* LaureateView.swift */,
+				184364512954B0A8002A8F59 /* LaureateViewModel.swift */,
+				1843645A2954BEB2002A8F59 /* dataSource */,
 			);
 			path = laureate;
 			sourceTree = "<group>";
@@ -82,10 +146,12 @@
 		18A700922953422800EB8C85 /* hwPagingOnRealAPI */ = {
 			isa = PBXGroup;
 			children = (
-				184364492954A605002A8F59 /* Info.plist */,
 				18A700AB295356EA00EB8C85 /* Network */,
 				18A700A12953423600EB8C85 /* app */,
 				187B285929537ECE0089C082 /* laureates */,
+				187B2861295382450089C082 /* laureate */,
+				184364572954BE01002A8F59 /* nobelPrizes */,
+				1843645F2955BD06002A8F59 /* extensions */,
 				18A700992953422900EB8C85 /* Preview Content */,
 			);
 			path = hwPagingOnRealAPI;
@@ -102,6 +168,7 @@
 		18A700A12953423600EB8C85 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				184364492954A605002A8F59 /* Info.plist */,
 				18A700972953422900EB8C85 /* Assets.xcassets */,
 				18A700932953422800EB8C85 /* hwPagingOnRealAPIApp.swift */,
 				18A700952953422800EB8C85 /* ContentView.swift */,
@@ -183,8 +250,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A700962953422800EB8C85 /* ContentView.swift in Sources */,
+				1843644D2954AFED002A8F59 /* SegmentedView.swift in Sources */,
+				184364592954BE1E002A8F59 /* NobelPrizeDataSource.swift in Sources */,
 				18A700942953422800EB8C85 /* hwPagingOnRealAPIApp.swift in Sources */,
+				1843645C2954BECD002A8F59 /* LaureateBasicDataSource.swift in Sources */,
+				184364542954B109002A8F59 /* SegmentedViewModel.swift in Sources */,
+				184364612955BD2D002A8F59 /* RandomAccessCollection.swift in Sources */,
+				184364502954B081002A8F59 /* LaureateView.swift in Sources */,
+				184364522954B0A8002A8F59 /* LaureateViewModel.swift in Sources */,
 				187B285B29537EFF0089C082 /* LaureatesViewModel.swift in Sources */,
+				184364632955C9F3002A8F59 /* ProgressBarModifier.swift in Sources */,
+				184364562954B157002A8F59 /* LaureatesListView.swift in Sources */,
 				187B2860295382400089C082 /* LaureateDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +394,7 @@
 				DEVELOPMENT_TEAM = MDZ5SL5X2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = hwPagingOnRealAPI/Info.plist;
+				INFOPLIST_FILE = hwPagingOnRealAPI/app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = hwPagingAPI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -353,7 +429,7 @@
 				DEVELOPMENT_TEAM = MDZ5SL5X2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = hwPagingOnRealAPI/Info.plist;
+				INFOPLIST_FILE = hwPagingOnRealAPI/app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = hwPagingAPI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
