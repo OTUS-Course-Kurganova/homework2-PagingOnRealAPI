@@ -25,7 +25,5 @@ struct SegmentedView: View {
 struct SegmentedView_Previews: PreviewProvider {
     static var previews: some View {
         SegmentedView()
-            .environmentObject(SegmentedViewModel())
     }
 }
-

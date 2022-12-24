@@ -14,6 +14,7 @@ struct hwPagingOnRealAPIApp: App {
             ContentView()
                 .environmentObject(LaureatesViewModel())
                 .environmentObject(SegmentedViewModel())
+                .environmentObject(NavigationViewModel(easing: .default))
         }
     }
 }

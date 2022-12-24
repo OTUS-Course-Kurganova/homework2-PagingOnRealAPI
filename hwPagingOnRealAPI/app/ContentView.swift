@@ -12,12 +12,16 @@ struct ContentView: View {
     @EnvironmentObject var segmentViewModel: SegmentedViewModel
 
     var body: some View {
-        TitleView
-        SegmentedView()
-            .environmentObject(segmentViewModel)
-        LaureatesListView()
-            .environmentObject(laureateViewModel)
-            .onAppear { laureateViewModel.getLaureates(category: segmentViewModel.convertToCategory()) }
+        NavigationCustomView(transition: .none) {
+            VStack {
+                TitleView
+                SegmentedView()
+                LaureatesListView()
+                    .onAppear {
+                        laureateViewModel.getLaureates(category: segmentViewModel.convertToCategory())
+                    }
+            }
+        }
     }
 
     fileprivate var TitleView: some View {
@@ -35,5 +39,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(LaureatesViewModel())
             .environmentObject(SegmentedViewModel())
+            .environmentObject(NavigationViewModel(easing: .default))
     }
 }

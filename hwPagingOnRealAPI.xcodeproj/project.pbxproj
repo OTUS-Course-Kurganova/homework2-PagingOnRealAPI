@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181D2D862957890A00F289FA /* NobelPrizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D2D852957890A00F289FA /* NobelPrizeView.swift */; };
 		1843644D2954AFED002A8F59 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843644C2954AFED002A8F59 /* SegmentedView.swift */; };
 		184364502954B081002A8F59 /* LaureateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843644F2954B081002A8F59 /* LaureateView.swift */; };
 		184364522954B0A8002A8F59 /* LaureateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364512954B0A8002A8F59 /* LaureateViewModel.swift */; };
@@ -16,18 +17,25 @@
 		1843645C2954BECD002A8F59 /* LaureateBasicDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843645B2954BECD002A8F59 /* LaureateBasicDataSource.swift */; };
 		184364612955BD2D002A8F59 /* RandomAccessCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364602955BD2D002A8F59 /* RandomAccessCollection.swift */; };
 		184364632955C9F3002A8F59 /* ProgressBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364622955C9F3002A8F59 /* ProgressBarModifier.swift */; };
+		18436465295711AE002A8F59 /* NavigationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18436464295711AE002A8F59 /* NavigationType.swift */; };
+		184364682957120E002A8F59 /* NavigationAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364672957120E002A8F59 /* NavigationAnimationType.swift */; };
+		1843646A295741D2002A8F59 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18436469295741D2002A8F59 /* Screen.swift */; };
+		1843646C29574275002A8F59 /* NavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843646B29574275002A8F59 /* NavigationStack.swift */; };
+		1843646F295748A7002A8F59 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843646E295748A7002A8F59 /* NavigationViewModel.swift */; };
+		1843647129574F08002A8F59 /* NavigationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843647029574F08002A8F59 /* NavigationCustomView.swift */; };
+		18436474295760B6002A8F59 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 18436473295760B6002A8F59 /* Network */; };
 		187B285B29537EFF0089C082 /* LaureatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B285A29537EFF0089C082 /* LaureatesViewModel.swift */; };
 		187B2860295382400089C082 /* LaureateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B285F295382400089C082 /* LaureateDataSource.swift */; };
 		18A700942953422800EB8C85 /* hwPagingOnRealAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A700932953422800EB8C85 /* hwPagingOnRealAPIApp.swift */; };
 		18A700962953422800EB8C85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A700952953422800EB8C85 /* ContentView.swift */; };
 		18A700982953422900EB8C85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A700972953422900EB8C85 /* Assets.xcassets */; };
 		18A7009B2953422900EB8C85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A7009A2953422900EB8C85 /* Preview Assets.xcassets */; };
-		18BD0B3D29536F2D003D20DA /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 18BD0B3C29536F2D003D20DA /* Network */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1801463D295364310089B19A /* generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = "<group>"; };
 		1801463F295366590089B19A /* NobelMedia-NobelMasterData-2.0-resolved.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "NobelMedia-NobelMasterData-2.0-resolved.json"; sourceTree = "<group>"; };
+		181D2D852957890A00F289FA /* NobelPrizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NobelPrizeView.swift; sourceTree = "<group>"; };
 		1843644829538EE6002A8F59 /* hwPagingOnRealAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hwPagingOnRealAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184364492954A605002A8F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1843644C2954AFED002A8F59 /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
@@ -39,6 +47,12 @@
 		1843645B2954BECD002A8F59 /* LaureateBasicDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateBasicDataSource.swift; sourceTree = "<group>"; };
 		184364602955BD2D002A8F59 /* RandomAccessCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollection.swift; sourceTree = "<group>"; };
 		184364622955C9F3002A8F59 /* ProgressBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarModifier.swift; sourceTree = "<group>"; };
+		18436464295711AE002A8F59 /* NavigationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationType.swift; sourceTree = "<group>"; };
+		184364672957120E002A8F59 /* NavigationAnimationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAnimationType.swift; sourceTree = "<group>"; };
+		18436469295741D2002A8F59 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		1843646B29574275002A8F59 /* NavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStack.swift; sourceTree = "<group>"; };
+		1843646E295748A7002A8F59 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		1843647029574F08002A8F59 /* NavigationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCustomView.swift; sourceTree = "<group>"; };
 		187B285A29537EFF0089C082 /* LaureatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureatesViewModel.swift; sourceTree = "<group>"; };
 		187B285F295382400089C082 /* LaureateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateDataSource.swift; sourceTree = "<group>"; };
 		18A700932953422800EB8C85 /* hwPagingOnRealAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hwPagingOnRealAPIApp.swift; sourceTree = "<group>"; };
@@ -54,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18BD0B3D29536F2D003D20DA /* Network in Frameworks */,
+				18436474295760B6002A8F59 /* Network in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +96,10 @@
 		1843644E2954B02A002A8F59 /* customNavigationStack */ = {
 			isa = PBXGroup;
 			children = (
+				1843646D295742E0002A8F59 /* skeleton */,
+				18436466295711F4002A8F59 /* animation */,
+				1843646E295748A7002A8F59 /* NavigationViewModel.swift */,
+				1843647029574F08002A8F59 /* NavigationCustomView.swift */,
 			);
 			path = customNavigationStack;
 			sourceTree = "<group>";
@@ -89,6 +107,7 @@
 		184364572954BE01002A8F59 /* nobelPrizes */ = {
 			isa = PBXGroup;
 			children = (
+				181D2D852957890A00F289FA /* NobelPrizeView.swift */,
 				184364582954BE1E002A8F59 /* NobelPrizeDataSource.swift */,
 			);
 			path = nobelPrizes;
@@ -110,6 +129,31 @@
 				184364622955C9F3002A8F59 /* ProgressBarModifier.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		18436466295711F4002A8F59 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				184364672957120E002A8F59 /* NavigationAnimationType.swift */,
+			);
+			path = animation;
+			sourceTree = "<group>";
+		};
+		1843646D295742E0002A8F59 /* skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				18436464295711AE002A8F59 /* NavigationType.swift */,
+				18436469295741D2002A8F59 /* Screen.swift */,
+				1843646B29574275002A8F59 /* NavigationStack.swift */,
+			);
+			path = skeleton;
+			sourceTree = "<group>";
+		};
+		18436472295760B6002A8F59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		187B285929537ECE0089C082 /* laureates */ = {
@@ -140,6 +184,7 @@
 				18A700922953422800EB8C85 /* hwPagingOnRealAPI */,
 				18A700A2295346C600EB8C85 /* README.md */,
 				1843644829538EE6002A8F59 /* hwPagingOnRealAPI.app */,
+				18436472295760B6002A8F59 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,7 +238,7 @@
 			);
 			name = hwPagingOnRealAPI;
 			packageProductDependencies = (
-				18BD0B3C29536F2D003D20DA /* Network */,
+				18436473295760B6002A8F59 /* Network */,
 			);
 			productName = hwPagingOnRealAPI;
 			productReference = 1843644829538EE6002A8F59 /* hwPagingOnRealAPI.app */;
@@ -249,17 +294,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1843646F295748A7002A8F59 /* NavigationViewModel.swift in Sources */,
 				18A700962953422800EB8C85 /* ContentView.swift in Sources */,
 				1843644D2954AFED002A8F59 /* SegmentedView.swift in Sources */,
 				184364592954BE1E002A8F59 /* NobelPrizeDataSource.swift in Sources */,
 				18A700942953422800EB8C85 /* hwPagingOnRealAPIApp.swift in Sources */,
 				1843645C2954BECD002A8F59 /* LaureateBasicDataSource.swift in Sources */,
 				184364542954B109002A8F59 /* SegmentedViewModel.swift in Sources */,
+				1843646C29574275002A8F59 /* NavigationStack.swift in Sources */,
+				1843647129574F08002A8F59 /* NavigationCustomView.swift in Sources */,
+				181D2D862957890A00F289FA /* NobelPrizeView.swift in Sources */,
 				184364612955BD2D002A8F59 /* RandomAccessCollection.swift in Sources */,
+				1843646A295741D2002A8F59 /* Screen.swift in Sources */,
 				184364502954B081002A8F59 /* LaureateView.swift in Sources */,
 				184364522954B0A8002A8F59 /* LaureateViewModel.swift in Sources */,
 				187B285B29537EFF0089C082 /* LaureatesViewModel.swift in Sources */,
+				184364682957120E002A8F59 /* NavigationAnimationType.swift in Sources */,
 				184364632955C9F3002A8F59 /* ProgressBarModifier.swift in Sources */,
+				18436465295711AE002A8F59 /* NavigationType.swift in Sources */,
 				184364562954B157002A8F59 /* LaureatesListView.swift in Sources */,
 				187B2860295382400089C082 /* LaureateDataSource.swift in Sources */,
 			);
@@ -476,7 +528,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		18BD0B3C29536F2D003D20DA /* Network */ = {
+		18436473295760B6002A8F59 /* Network */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Network;
 		};
