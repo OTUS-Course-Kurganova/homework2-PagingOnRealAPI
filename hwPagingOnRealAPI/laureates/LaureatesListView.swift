@@ -13,11 +13,18 @@ struct LaureatesListView: View {
     @EnvironmentObject var navigation: NavigationViewModel
 
     var body: some View {
+        if viewModel.laureates.isEmpty && viewModel.isLoading { loader }
         List {
             ForEach(viewModel.laureates) { laureate in
                 contentCell(laureate: laureate, isLast: viewModel.laureates.isLast(laureate))
             }
         }
+    }
+
+    private var loader: some View {
+        ProgressView()
+            .progressViewStyle(CircularProgressViewStyle())
+            .padding(.top, 100)
     }
 
     fileprivate func fillContentCell(laureate: LaureateDataSource, isLast: Bool) -> some View {

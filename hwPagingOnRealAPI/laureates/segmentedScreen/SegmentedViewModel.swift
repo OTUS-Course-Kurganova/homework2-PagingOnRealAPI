@@ -12,7 +12,7 @@ final class SegmentedViewModel: ObservableObject {
     
     func convertToCategory() -> ScienceCategory {
         if selectedSegment == 0 {
-            return .chemisrty
+            return .chemistry
         }
         if selectedSegment == 1 {
             return .medicine

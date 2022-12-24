@@ -9,7 +9,7 @@ import SwiftUI
 import Network
 
 enum ScienceCategory: String {
-    case chemisrty = "Химии"
+    case chemistry = "Химии"
     case medicine = "Медицины"
 }
 
@@ -18,15 +18,20 @@ final class LaureatesViewModel: ObservableObject {
 
     private let limit = 25
     var isLoading = false
+    private var currentCategory: ScienceCategory = .chemistry
 
     func getLaureates(category: ScienceCategory) {
+        if category != currentCategory {
+            laureates.removeAll()
+            currentCategory = category
+        }
         let modelCategory = convertCategories(category: category)
         fetchLaureates(category: modelCategory)
     }
 
     fileprivate func convertCategories(category: ScienceCategory) -> DefaultAPI.NobelPrizeCategory_laureatesGet {
         switch category {
-            case .chemisrty: return .che
+            case .chemistry: return .che
             case .medicine: return .med
         }
     }

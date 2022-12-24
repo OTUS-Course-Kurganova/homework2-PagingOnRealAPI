@@ -16,10 +16,6 @@ struct ContentView: View {
             VStack {
                 TitleView
                 SegmentedView()
-                LaureatesListView()
-                    .onAppear {
-                        laureateViewModel.getLaureates(category: segmentViewModel.convertToCategory())
-                    }
             }
         }
     }
