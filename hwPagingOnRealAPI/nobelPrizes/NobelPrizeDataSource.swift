@@ -13,12 +13,16 @@ final class NobelPrizeDataSource {
 
     let category: String
     let awardYear: String
-    var laureates: [LaureateBasicDataSource?]
+    let amount: Int
+    let status: NobelPrizePerLaureate.PrizeStatus
+    let motivation: String
 
-    init(prize: NobelPrize) {
-        category = prize.category?.en ?? unknown
-        awardYear = prize.awardYear?.formatted() ?? unknown
-        laureates = prize.laureates?.compactMap { LaureateBasicDataSource(laureate: $0) } ?? []
+    init(prize: NobelPrizePerLaureate) {
+        category = prize.categoryFullName?.en ?? unknown
+        awardYear = prize.awardYear ?? unknown
+        amount = prize.prizeAmount ?? 0
+        motivation = prize.motivation?.en ?? unknown
+        status = prize.prizeStatus ?? .restricted
     }
 }
 

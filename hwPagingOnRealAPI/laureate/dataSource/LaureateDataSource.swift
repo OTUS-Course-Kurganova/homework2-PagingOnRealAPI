@@ -17,6 +17,7 @@ final class LaureateDataSource {
     let deathDate: String
     let birthCountry: String
     let deathCountry: String
+    let nobelPrizes: [NobelPrizeDataSource]
 
     init(laureate: Laureate) {
         name = laureate.fullName?.en ?? unknown
@@ -25,6 +26,7 @@ final class LaureateDataSource {
         deathDate = laureate.death?.date ?? unknown
         birthCountry = laureate.birth?.place?.country?.en ?? unknown
         deathCountry = laureate.death?.place?.country?.en ?? unknown
+        nobelPrizes = laureate.nobelPrizes?.map { NobelPrizeDataSource(prize: $0) } ?? []
     }
 }
 

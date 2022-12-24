@@ -48,8 +48,10 @@ struct LaureateView: View {
             Text(title)
                 .font(.system(size: 16))
                 .fontWeight(.semibold)
+                .fixedSize(horizontal: false, vertical: true)
             Text(info)
                 .font(.system(size: 16))
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 
@@ -57,7 +59,8 @@ struct LaureateView: View {
         Button {
             navigation.push(newView: NobelPrizeView(laureate: laureate))
         } label: {
-            Text("Просмотреть информацию о нобелевской премии")
+            Text("Просмотреть информацию о нобелевских премиях")
+                .foregroundColor(.teal)
         }
     }
 

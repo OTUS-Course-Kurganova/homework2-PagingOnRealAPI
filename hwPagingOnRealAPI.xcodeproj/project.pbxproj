@@ -10,7 +10,6 @@
 		181D2D862957890A00F289FA /* NobelPrizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D2D852957890A00F289FA /* NobelPrizeView.swift */; };
 		1843644D2954AFED002A8F59 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843644C2954AFED002A8F59 /* SegmentedView.swift */; };
 		184364502954B081002A8F59 /* LaureateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843644F2954B081002A8F59 /* LaureateView.swift */; };
-		184364522954B0A8002A8F59 /* LaureateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364512954B0A8002A8F59 /* LaureateViewModel.swift */; };
 		184364542954B109002A8F59 /* SegmentedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364532954B109002A8F59 /* SegmentedViewModel.swift */; };
 		184364562954B157002A8F59 /* LaureatesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364552954B157002A8F59 /* LaureatesListView.swift */; };
 		184364592954BE1E002A8F59 /* NobelPrizeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184364582954BE1E002A8F59 /* NobelPrizeDataSource.swift */; };
@@ -40,7 +39,6 @@
 		184364492954A605002A8F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1843644C2954AFED002A8F59 /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		1843644F2954B081002A8F59 /* LaureateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateView.swift; sourceTree = "<group>"; };
-		184364512954B0A8002A8F59 /* LaureateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureateViewModel.swift; sourceTree = "<group>"; };
 		184364532954B109002A8F59 /* SegmentedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedViewModel.swift; sourceTree = "<group>"; };
 		184364552954B157002A8F59 /* LaureatesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaureatesListView.swift; sourceTree = "<group>"; };
 		184364582954BE1E002A8F59 /* NobelPrizeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NobelPrizeDataSource.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			children = (
 				1843644E2954B02A002A8F59 /* customNavigationStack */,
 				1843644F2954B081002A8F59 /* LaureateView.swift */,
-				184364512954B0A8002A8F59 /* LaureateViewModel.swift */,
 				1843645A2954BEB2002A8F59 /* dataSource */,
 			);
 			path = laureate;
@@ -307,7 +304,6 @@
 				184364612955BD2D002A8F59 /* RandomAccessCollection.swift in Sources */,
 				1843646A295741D2002A8F59 /* Screen.swift in Sources */,
 				184364502954B081002A8F59 /* LaureateView.swift in Sources */,
-				184364522954B0A8002A8F59 /* LaureateViewModel.swift in Sources */,
 				187B285B29537EFF0089C082 /* LaureatesViewModel.swift in Sources */,
 				184364682957120E002A8F59 /* NavigationAnimationType.swift in Sources */,
 				184364632955C9F3002A8F59 /* ProgressBarModifier.swift in Sources */,
