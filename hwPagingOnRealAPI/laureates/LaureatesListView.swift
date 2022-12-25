@@ -12,11 +12,15 @@ struct LaureatesListView: View {
     @EnvironmentObject var segmentedViewModel: SegmentedViewModel
     @EnvironmentObject var navigation: NavigationViewModel
 
+    @State var isRotating = 0.0
+
     var body: some View {
         if viewModel.laureates.isEmpty && viewModel.isLoading { loader }
         List {
             ForEach(viewModel.laureates) { laureate in
                 contentCell(laureate: laureate, isLast: viewModel.laureates.isLast(laureate))
+                    .rotationEffect(.degrees(isRotating))
+                    .animation(.linear(duration: 1), value: isRotating)
             }
         }
     }
@@ -29,7 +33,12 @@ struct LaureatesListView: View {
 
     fileprivate func fillContentCell(laureate: LaureateDataSource, isLast: Bool) -> some View {
         Button {
-            navigation.push(newView: LaureateView(laureate: laureate))
+            withAnimation {
+                isRotating += 200
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                navigation.push(newView: LaureateView(laureate: laureate))
+            }
         } label: {
             Text(laureate.name)
                 .foregroundColor(.black)
